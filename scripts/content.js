@@ -30,6 +30,7 @@ const getData = () => {
 			Phong: subject[11],
 			CBGV: subject[12],
 			Tuan: subject[13],
+			color: '',
 		}
 		data.push(subject)
 	})
@@ -60,8 +61,12 @@ const autoStart = () => {
 	const button = document.querySelector(
 		'#ctl00_ContentPlaceHolder1_ctl00_rad_ThuTiet',
 	)
-	if (button.checked) {
-		renderButton()
+	try {
+		if (button.checked) {
+			renderButton()
+		}
+	} catch {
+		//
 	}
 }
 
