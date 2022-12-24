@@ -1,0 +1,17 @@
+{
+	"manifest_version": 3,
+	"name": "Thời khóa biểu SGU",
+	"version": "1.0",
+	"description": "Thêm chức năng xem thời khóa biểu",
+
+	"content_scripts": [
+		{
+			"js": ["scripts/content.js"],
+			"matches": ["http://thongtindaotao.sgu.edu.vn/*"]
+		}
+	],
+	"action": {
+		"default_popup": "popup.html"
+	},
+	"permissions": ["storage"]
+}
