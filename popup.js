@@ -61,20 +61,6 @@ const renderHTML = (dataSubject) => {
 	let data = dataSubject
 	const table = document.querySelector('.sgu-tkb-table')
 
-	let index = 0
-	for (let i = 0; i < data.length; i++) {
-		let currentColor = data.find(
-			(value) => value.MaMH == data[i].MaMH && value.color != '',
-		)
-		if (currentColor.color == undefined) {
-			data[i] = {
-				...data[i],
-				color: `--color-${index++}`,
-			}
-		} else {
-			data[i].color = currentColor.color
-		}
-	}
 	data.forEach((element) => {
 		let subject = document.createElement('div')
 		subject.innerHTML = `

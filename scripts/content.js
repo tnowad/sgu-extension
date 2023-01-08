@@ -1,3 +1,21 @@
+const fillColor = (data) => {
+	let color = 0
+	for (let index = 0; index < data.length; index++) {
+		if (data[index].color == undefined) {
+			data[index].color =
+				data.find(
+					(subject) =>
+						subject.MaMH == data[index].MaMH &&
+						subject.color != undefined,
+				)?.color || color++
+		}
+	}
+
+	data.sort((a, b) => a.color - b.color)
+
+	return data
+}
+
 const getData = () => {
 	const table = Array.from(document.querySelectorAll('.body-table tr'))
 	let data = []
@@ -33,6 +51,7 @@ const getData = () => {
 			Tuan: subject[13],
 		})
 	})
+	data = fillColor(data)
 	return data
 }
 
@@ -56,12 +75,8 @@ const autoStart = () => {
 	const button = document.querySelector(
 		'#ctl00_ContentPlaceHolder1_ctl00_rad_ThuTiet',
 	)
-	try {
-		if (button.checked) {
-			renderButton()
-		}
-	} catch {
-		//
+	if (button && button.checked) {
+		renderButton()
 	}
 }
 
