@@ -31,14 +31,11 @@ const getData = () => {
 		console.log(
 			element.querySelector('td[onmouseover]').attributes.onmouseover,
 		)
-		let subject = (
-			Array.from(element.querySelectorAll('td')).reduce(
-				(previous, current) => {
-					return previous + current.innerText + '|'
-				},
-				'',
-			) + element.querySelector('td[onmouseover]').attributes.onmouseover
-		).split('|')
+		let subject = Array.from(element.querySelectorAll('td'))
+			.reduce((previous, current) => {
+				return previous + current.innerText + '|'
+			}, '')
+			.split('|')
 		data.push({
 			MaMH: subject[0],
 			TenMH: subject[1],
