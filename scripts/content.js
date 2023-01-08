@@ -15,7 +15,8 @@ const getData = () => {
 				return previous + current.innerText + '|'
 			}, '')
 			.split('|')
-		subject = {
+
+		data.push({
 			MaMH: subject[0],
 			TenMH: subject[1],
 			NhomMH: subject[2],
@@ -30,9 +31,7 @@ const getData = () => {
 			Phong: subject[11],
 			CBGV: subject[12],
 			Tuan: subject[13],
-			color: '',
-		}
-		data.push(subject)
+		})
 	})
 	return data
 }
@@ -51,10 +50,6 @@ const renderButton = () => {
 			'#ctl00_ContentPlaceHolder1_ctl00_pnlHeader > table > tbody > tr:nth-child(1) > td',
 		)
 		.appendChild(button)
-}
-
-const render = async () => {
-	const data = getData()
 }
 
 const autoStart = () => {
