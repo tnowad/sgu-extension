@@ -28,9 +28,9 @@ const getData = () => {
 		Bảy: 7,
 	}
 	table.forEach((element) => {
-		console.log(
-			element.querySelector('td[onmouseover]').attributes.onmouseover,
-		)
+		// console.log(
+		// 	element.querySelector('td[onmouseover]').attributes.onmouseover,
+		// )
 		let subject = Array.from(element.querySelectorAll('td'))
 			.reduce((previous, current) => {
 				return previous + current.innerText + '|'
