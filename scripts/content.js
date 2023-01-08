@@ -96,5 +96,3 @@ const autoStart = () => {
 }
 
 autoStart()
-
-console.log(getData())
