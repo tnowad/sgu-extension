@@ -34,14 +34,12 @@ const getData = () => {
 		Bảy: 7,
 	}
 	table.forEach((element) => {
-		// console.log(
-		// 	element.querySelector('td[onmouseover]').attributes.onmouseover,
-		// )
 		let subject = Array.from(element.querySelectorAll('td'))
 			.reduce((previous, current) => {
 				return previous + current.innerText + '|'
 			}, '')
 			.split('|')
+
 		data.push({
 			MaMH: subject[0],
 			TenMH: subject[1],
@@ -56,7 +54,9 @@ const getData = () => {
 			ST: parseInt(subject[10]),
 			Phong: subject[11],
 			CBGV: subject[12],
-			Tuan: subject[13],
+			Tuan: element
+				.querySelector('td:nth-child(14)')
+				.innerHTML.split("'")[1],
 		})
 	})
 	data = fillColor(data)
