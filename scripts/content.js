@@ -34,7 +34,7 @@ const getData = () => {
 		Bảy: 7,
 	}
 	table.forEach((element) => {
-		let subject = Array.from(element.querySelectorAll('td'))
+		const subject = Array.from(element.querySelectorAll('td'))
 			.reduce((previous, current) => {
 				return previous + current.innerText + '|'
 			}, '')
@@ -54,9 +54,16 @@ const getData = () => {
 			ST: parseInt(subject[10]),
 			Phong: subject[11],
 			CBGV: subject[12],
-			Tuan: element
-				.querySelector('td:nth-child(14)')
-				.innerHTML.split("'")[1],
+			Tuan: ((day) => {
+				return day
+					.split('--')
+					.map((day) => day.replace(/(\d+[/])(\d+[/])/, '$2$1'))
+					.map((date) => new Date(date))
+			})(
+				element
+					.querySelector('td:nth-child(14)')
+					.innerHTML.split("'")[1],
+			),
 		})
 	})
 	data = fillColor(data)
