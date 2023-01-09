@@ -3,6 +3,10 @@ const getData = async () => {
 	return data
 }
 
+const getSetting = () => {
+
+}
+
 const renderHTML = () => {}
 
 export default renderHTML
