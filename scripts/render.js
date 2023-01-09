@@ -3,8 +3,8 @@ const getData = async () => {
 	return data
 }
 
-const getSetting = () => {
-
+const getSetting = async () => {
+    const setting = JSON.parse(await chrome.storage.local.get('setting')['setting'])
 }
 
 const renderHTML = () => {}
