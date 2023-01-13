@@ -8,8 +8,24 @@
 		<link rel="stylesheet" href="/css/view.css" />
 	</head>
 	<body>
+		<style>
+			.tkb-table {
+				height: 80vh;
+				display: grid;
+				grid-template-columns: repeat(8, 1fr);
+				grid-template-rows: repeat(12, 1fr);
+				grid-column-gap: 0px;
+				grid-row-gap: 0px;
+			}
+
+			.subject {
+				grid-column: var(--Thu);
+				grid-row: calc(var(--TietBD) + 1) / span var(--ST);
+			}
+		</style>
 		<div class="tkb">
 			<div class="container">
+				<h1>Thời Khóa Biểu</h1>
 				<div class="tkb-table"></div>
 			</div>
 		</div>
