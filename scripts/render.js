@@ -31,7 +31,7 @@ const renderHTML = async () => {
 			</div>`
 		)
 	}, '')
-	for (let index = 0; index < 6 * 14 - count - 2; index++) {
+	for (let index = 0; index < 82 - count; index++) {
 		html += `<div class="cell"></div>`
 	}
 	return html
