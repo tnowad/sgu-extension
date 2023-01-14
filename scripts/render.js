@@ -11,11 +11,13 @@ const getSetting = async () => {
 
 const renderHTML = async () => {
 	const data = await getData()
-	return data.reduce((previousValue, currentValue) => {
+	let count = 0
+	let html = data.reduce((previousValue, currentValue) => {
+		count = count + currentValue.ST
 		return (
 			previousValue +
 			`<div 
-				class="subject"
+				class="cell subject"
 				style="
 					--Thu: ${currentValue.Thu};
 					--TietBD: ${currentValue.TietBD};
@@ -29,6 +31,10 @@ const renderHTML = async () => {
 			</div>`
 		)
 	}, '')
+	for (let index = 0; index < 6 * 14 - count - 2; index++) {
+		html += `<div class="cell"></div>`
+	}
+	return html
 }
 
 export { getData, getSetting, renderHTML }

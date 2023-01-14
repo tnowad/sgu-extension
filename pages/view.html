@@ -9,9 +9,18 @@
 	</head>
 	<body>
 		<style>
+			.tkb {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+			}
+			.container {
+				width: min(100%, 1200px);
+				min-width: 937px;
+			}
 			:root {
 				--primary-color--0: #0369a1;
-				--secondary-color--0: ;
+				--secondary-color--0: #3290c2;
 				--tertiary-color--0: #e7f6fd;
 
 				--primary-color--1: #874de0;
@@ -72,6 +81,7 @@
 				grid-column: var(--Thu);
 				grid-row: calc(var(--TietBD) + 1) / span var(--ST);
 			}
+
 			.day-info {
 				grid-column: var(--Thu);
 			}
@@ -96,86 +106,127 @@
 
 			.day-info,
 			.period-info {
+				color: white;
 				background-color: #0095c2;
 				display: flex;
 				align-items: center;
 				justify-content: center;
+			}
+			.subject {
+				border-left: 2px solid;
+			}
+			.subject--TenMH {
+				font-weight: 800;
+			}
+			.cell {
+				box-shadow: 0px 0px 1px rgb(110, 110, 110);
+				box-sizing: border-box;
 			}
 		</style>
 		<div class="tkb">
 			<div class="container">
 				<h1>Thời Khóa Biểu</h1>
 				<div class="tkb-table">
-					<div class="day-info top" style="--Thu: 2">Thứ 2</div>
-					<div class="day-info top" style="--Thu: 3">Thứ 3</div>
-					<div class="day-info top" style="--Thu: 4">Thứ 4</div>
-					<div class="day-info top" style="--Thu: 5">Thứ 5</div>
-					<div class="day-info top" style="--Thu: 6">Thứ 6</div>
-					<div class="day-info top" style="--Thu: 7">Thứ 7</div>
-					<div class="day-info bottom" style="--Thu: 2">Thứ 2</div>
-					<div class="day-info bottom" style="--Thu: 3">Thứ 3</div>
-					<div class="day-info bottom" style="--Thu: 4">Thứ 4</div>
-					<div class="day-info bottom" style="--Thu: 5">Thứ 5</div>
-					<div class="day-info bottom" style="--Thu: 6">Thứ 6</div>
-					<div class="day-info bottom" style="--Thu: 7">Thứ 7</div>
-					<div class="period-info left" style="--Tiet: 1">Tiết 1</div>
-					<div class="period-info left" style="--Tiet: 2">Tiết 2</div>
-					<div class="period-info left" style="--Tiet: 3">Tiết 3</div>
-					<div class="period-info left" style="--Tiet: 4">Tiết 4</div>
-					<div class="period-info left" style="--Tiet: 5">Tiết 5</div>
-					<div class="period-info left" style="--Tiet: 6">Tiết 6</div>
-					<div class="period-info left" style="--Tiet: 7">Tiết 7</div>
-					<div class="period-info left" style="--Tiet: 8">Tiết 8</div>
-					<div class="period-info left" style="--Tiet: 9">Tiết 9</div>
-					<div class="period-info left" style="--Tiet: 10">
-						Tiết 10
+					<div class="cell day-info top" style="--Thu: 2">Thứ 2</div>
+					<div class="cell day-info top" style="--Thu: 3">Thứ 3</div>
+					<div class="cell day-info top" style="--Thu: 4">Thứ 4</div>
+					<div class="cell day-info top" style="--Thu: 5">Thứ 5</div>
+					<div class="cell day-info top" style="--Thu: 6">Thứ 6</div>
+					<div class="cell day-info top" style="--Thu: 7">Thứ 7</div>
+					<div class="cell day-info bottom" style="--Thu: 2">
+						Thứ 2
 					</div>
-					<div class="period-info left" style="--Tiet: 11">
-						Tiết 11
+					<div class="cell day-info bottom" style="--Thu: 3">
+						Thứ 3
 					</div>
-					<div class="period-info left" style="--Tiet: 12">
-						Tiết 12
+					<div class="cell day-info bottom" style="--Thu: 4">
+						Thứ 4
 					</div>
-					<div class="period-info left" style="--Tiet: 13">
-						Tiết 13
+					<div class="cell day-info bottom" style="--Thu: 5">
+						Thứ 5
 					</div>
-					<div class="period-info right" style="--Tiet: 1">
+					<div class="cell day-info bottom" style="--Thu: 6">
+						Thứ 6
+					</div>
+					<div class="cell day-info bottom" style="--Thu: 7">
+						Thứ 7
+					</div>
+					<div class="cell period-info left" style="--Tiet: 1">
 						Tiết 1
 					</div>
-					<div class="period-info right" style="--Tiet: 2">
+					<div class="cell period-info left" style="--Tiet: 2">
 						Tiết 2
 					</div>
-					<div class="period-info right" style="--Tiet: 3">
+					<div class="cell period-info left" style="--Tiet: 3">
 						Tiết 3
 					</div>
-					<div class="period-info right" style="--Tiet: 4">
+					<div class="cell period-info left" style="--Tiet: 4">
 						Tiết 4
 					</div>
-					<div class="period-info right" style="--Tiet: 5">
+					<div class="cell period-info left" style="--Tiet: 5">
 						Tiết 5
 					</div>
-					<div class="period-info right" style="--Tiet: 6">
+					<div class="cell period-info left" style="--Tiet: 6">
 						Tiết 6
 					</div>
-					<div class="period-info right" style="--Tiet: 7">
+					<div class="cell period-info left" style="--Tiet: 7">
 						Tiết 7
 					</div>
-					<div class="period-info right" style="--Tiet: 8">
+					<div class="cell period-info left" style="--Tiet: 8">
 						Tiết 8
 					</div>
-					<div class="period-info right" style="--Tiet: 9">
+					<div class="cell period-info left" style="--Tiet: 9">
 						Tiết 9
 					</div>
-					<div class="period-info right" style="--Tiet: 10">
+					<div class="cell period-info left" style="--Tiet: 10">
 						Tiết 10
 					</div>
-					<div class="period-info right" style="--Tiet: 11">
+					<div class="cell period-info left" style="--Tiet: 11">
 						Tiết 11
 					</div>
-					<div class="period-info right" style="--Tiet: 12">
+					<div class="cell period-info left" style="--Tiet: 12">
 						Tiết 12
 					</div>
-					<div class="period-info right" style="--Tiet: 13">
+					<div class="cell period-info left" style="--Tiet: 13">
+						Tiết 13
+					</div>
+					<div class="cell period-info right" style="--Tiet: 1">
+						Tiết 1
+					</div>
+					<div class="cell period-info right" style="--Tiet: 2">
+						Tiết 2
+					</div>
+					<div class="cell period-info right" style="--Tiet: 3">
+						Tiết 3
+					</div>
+					<div class="cell period-info right" style="--Tiet: 4">
+						Tiết 4
+					</div>
+					<div class="cell period-info right" style="--Tiet: 5">
+						Tiết 5
+					</div>
+					<div class="cell period-info right" style="--Tiet: 6">
+						Tiết 6
+					</div>
+					<div class="cell period-info right" style="--Tiet: 7">
+						Tiết 7
+					</div>
+					<div class="cell period-info right" style="--Tiet: 8">
+						Tiết 8
+					</div>
+					<div class="cell period-info right" style="--Tiet: 9">
+						Tiết 9
+					</div>
+					<div class="cell period-info right" style="--Tiet: 10">
+						Tiết 10
+					</div>
+					<div class="cell period-info right" style="--Tiet: 11">
+						Tiết 11
+					</div>
+					<div class="cell period-info right" style="--Tiet: 12">
+						Tiết 12
+					</div>
+					<div class="cell period-info right" style="--Tiet: 13">
 						Tiết 13
 					</div>
 				</div>
