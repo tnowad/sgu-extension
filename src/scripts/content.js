@@ -1,6 +1,6 @@
 const fillColor = (data) => {
   let colorIndex = 0;
-  const colorsMap = new Map(); // map to store color indexes by MaMH
+  const colorsMap = new Map();
 
   for (const item of data) {
     if (item.color === undefined) {
@@ -30,18 +30,19 @@ const parseDayOfWeek = (day) => {
 };
 
 const parseWeeks = (weeksText) => {
-  const weeks = weeksText.split("--").map((week) => {
-    return new Date(week.replace(/(\d+[/])(\d+[/])/, "$2$1"));
-  });
-  return weeks;
+  return weeksText
+    .split("--")
+    .map((week) => new Date(week.replace(/(\d+[/])(\d+[/])/, "$2$1")));
 };
 
 const parseSubject = (tdElements) => {
-  const subjectText = tdElements.reduce((previous, current) => {
-    return previous + current.innerText + "|";
-  }, "");
+  const subjectText = tdElements.reduce(
+    (previous, current) => previous + current.innerText + "|",
+    ""
+  );
   const subjectFields = subjectText.split("|");
-  const subject = {
+
+  return {
     MaMH: subjectFields[0],
     TenMH: subjectFields[1],
     NhomMH: subjectFields[2],
@@ -57,21 +58,16 @@ const parseSubject = (tdElements) => {
     CBGV: subjectFields[12],
     Tuan: parseWeeks(tdElements[13].innerHTML.split("'")[1]),
   };
-  return subject;
 };
 
 const getData = () => {
   const trElements = Array.from(document.querySelectorAll(".body-table tr"));
-  const data = trElements.map((trElement) => {
-    const tdElements = Array.from(trElement.querySelectorAll("td"));
-    const subject = parseSubject(tdElements);
-    return subject;
-  });
-  const coloredData = fillColor(data);
-  return coloredData;
-};
+  const data = trElements.map((trElement) =>
+    parseSubject(Array.from(trElement.querySelectorAll("td")))
+  );
 
-console.log(getData());
+  return fillColor(data);
+};
 
 const updateSchedule = () => {
   const data = getData();
@@ -84,6 +80,7 @@ const createUpdateButton = () => {
   const button = document.createElement("button");
   button.textContent = "Cập nhật thời khóa biểu";
   button.addEventListener("click", updateSchedule);
+
   const headerCell = document.querySelector(
     "#ctl00_ContentPlaceHolder1_ctl00_pnlHeader > table > tbody > tr:nth-child(1) > td"
   );
@@ -94,6 +91,7 @@ const tryAutoStart = () => {
   const scheduleTabButton = document.querySelector(
     "#ctl00_ContentPlaceHolder1_ctl00_rad_ThuTiet"
   );
+
   if (scheduleTabButton && scheduleTabButton.checked) {
     createUpdateButton();
   }
