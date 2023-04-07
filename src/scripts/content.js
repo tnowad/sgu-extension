@@ -17,10 +17,8 @@ const fillColor = (data) => {
   return data;
 };
 
-const getData = () => {
-  const table = Array.from(document.querySelectorAll(".body-table tr"));
-  let data = [];
-  const Thu = {
+const parseDayOfWeek = (day) => {
+  const daysOfWeek = {
     Hai: 2,
     Ba: 3,
     Tư: 4,
@@ -28,63 +26,77 @@ const getData = () => {
     Sáu: 6,
     Bảy: 7,
   };
-  table.forEach((element) => {
-    const subject = Array.from(element.querySelectorAll("td"))
-      .reduce((previous, current) => {
-        return previous + current.innerText + "|";
-      }, "")
-      .split("|");
+  return daysOfWeek[day];
+};
 
-    data.push({
-      MaMH: subject[0],
-      TenMH: subject[1],
-      NhomMH: subject[2],
-      STC: subject[3],
-      MaLop: subject[4],
-      STCHP: subject[5],
-      KDK: subject[6],
-      TH: subject[7],
-      Thu: Thu[subject[8]],
-      TietBD: parseInt(subject[9]),
-      ST: parseInt(subject[10]),
-      Phong: subject[11],
-      CBGV: subject[12],
-      Tuan: ((day) => {
-        return day
-          .split("--")
-          .map((day) => day.replace(/(\d+[/])(\d+[/])/, "$2$1"))
-          .map((date) => new Date(date));
-      })(element.querySelector("td:nth-child(14)").innerHTML.split("'")[1]),
-    });
+const parseWeeks = (weeksText) => {
+  const weeks = weeksText.split("--").map((week) => {
+    return new Date(week.replace(/(\d+[/])(\d+[/])/, "$2$1"));
   });
-  data = fillColor(data);
-  return data;
+  return weeks;
+};
+
+const parseSubject = (tdElements) => {
+  const subjectText = tdElements.reduce((previous, current) => {
+    return previous + current.innerText + "|";
+  }, "");
+  const subjectFields = subjectText.split("|");
+  const subject = {
+    MaMH: subjectFields[0],
+    TenMH: subjectFields[1],
+    NhomMH: subjectFields[2],
+    STC: subjectFields[3],
+    MaLop: subjectFields[4],
+    STCHP: subjectFields[5],
+    KDK: subjectFields[6],
+    TH: subjectFields[7],
+    Thu: parseDayOfWeek(subjectFields[8]),
+    TietBD: parseInt(subjectFields[9]),
+    ST: parseInt(subjectFields[10]),
+    Phong: subjectFields[11],
+    CBGV: subjectFields[12],
+    Tuan: parseWeeks(tdElements[13].innerHTML.split("'")[1]),
+  };
+  return subject;
+};
+
+const getData = () => {
+  const trElements = Array.from(document.querySelectorAll(".body-table tr"));
+  const data = trElements.map((trElement) => {
+    const tdElements = Array.from(trElement.querySelectorAll("td"));
+    const subject = parseSubject(tdElements);
+    return subject;
+  });
+  const coloredData = fillColor(data);
+  return coloredData;
 };
 
 console.log(getData());
-const renderButton = () => {
-  const button = document.createElement("button");
-  button.textContent = "Cập nhật thời khóa biểu";
-  button.addEventListener("click", () => {
-    const data = getData();
-    chrome.storage.local.set({ tkb: JSON.stringify(data) }).then(() => {
-      alert("Đã cập nhật thời khóa biểu!");
-    });
+
+const updateSchedule = () => {
+  const data = getData();
+  chrome.storage.local.set({ tkb: JSON.stringify(data) }).then(() => {
+    alert("Đã cập nhật thời khóa biểu!");
   });
-  document
-    .querySelector(
-      "#ctl00_ContentPlaceHolder1_ctl00_pnlHeader > table > tbody > tr:nth-child(1) > td"
-    )
-    .appendChild(button);
 };
 
-const autoStart = () => {
-  const button = document.querySelector(
+const createUpdateButton = () => {
+  const button = document.createElement("button");
+  button.textContent = "Cập nhật thời khóa biểu";
+  button.addEventListener("click", updateSchedule);
+  const headerCell = document.querySelector(
+    "#ctl00_ContentPlaceHolder1_ctl00_pnlHeader > table > tbody > tr:nth-child(1) > td"
+  );
+  headerCell.appendChild(button);
+};
+
+const tryAutoStart = () => {
+  const scheduleTabButton = document.querySelector(
     "#ctl00_ContentPlaceHolder1_ctl00_rad_ThuTiet"
   );
-  if (button && button.checked) {
-    renderButton();
+  if (scheduleTabButton && scheduleTabButton.checked) {
+    createUpdateButton();
   }
 };
 
-autoStart();
+tryAutoStart();
