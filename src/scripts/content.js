@@ -1,8 +1,8 @@
 const fillColor = (data) => {
   let color = 0;
-  for (let index = 0; index < data.length; index++) {
-    if (data[index].color == undefined) {
-      data[index].color = ((dataColor) => {
+  for (let element of data) {
+    if (element.color == undefined) {
+      element.color = ((dataColor) => {
         if (dataColor != undefined) {
           return dataColor;
         }
@@ -10,7 +10,7 @@ const fillColor = (data) => {
       })(
         data.find(
           (subject) =>
-            subject.MaMH == data[index].MaMH && subject.color != undefined
+            subject.MaMH == element.MaMH && subject.color != undefined
         )?.color
       );
     }
