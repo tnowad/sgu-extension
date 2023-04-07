@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #e8f5fe;
+}
+.tkb {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+  width: min(100%, 1200px);
+  min-width: 937px;
+}
+:root {
+  --primary-color--0: #0369a1;
+  --secondary-color--0: #3290c2;
+  --tertiary-color--0: #e7f6fd;
+
+  --primary-color--1: #874de0;
+  --secondary-color--1: #874de0;
+  --tertiary-color--1: #f4efff;
+
+  --primary-color--2: #2f9074;
+  --secondary-color--2: #2f9074;
+  --tertiary-color--2: #e8f8f3;
+
+  --primary-color--3: #71160d;
+  --secondary-color--3: #71160d;
+  --tertiary-color--3: #ffeff0;
+
+  --primary-color--4: #b45309;
+  --secondary-color--4: #b45309;
+  --tertiary-color--4: #fef6e7;
+
+  --primary-color--5: #73347f;
+  --secondary-color--5: #73347f;
+  --tertiary-color--5: #fdf3ff;
+
+  --primary-color--6: #ab2f64;
+  --secondary-color--6: #ab2f64;
+  --tertiary-color--6: #fff3f8;
+
+  --primary-color--7: #0095c2;
+  --secondary-color--7: #0095c2;
+  --tertiary-color--7: #f1faff;
+
+  --primary-color--8: #65c18c;
+  --secondary-color--8: #65c18c;
+  --tertiary-color--8: #c3e9d3;
+
+  --primary-color--9: #874de0;
+  --secondary-color--9: #874de0;
+  --tertiary-color--9: #f4efff;
+
+  --primary-color--10: #874de0;
+  --secondary-color--10: #874de0;
+  --tertiary-color--10: #f4efff;
+
+  --primary-color--11: #874de0;
+  --secondary-color--11: #874de0;
+  --tertiary-color--11: #f4efff;
+}
+
+.tkb-table {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 5% repeat(6, 1fr) 5%;
+  grid-template-rows: repeat(15, 1fr);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 1px rgb(110, 110, 110);
+  box-sizing: border-box;
+}
+
+.subject {
+  grid-column: var(--Thu);
+  grid-row: calc(var(--TietBD) + 1) / span var(--ST);
+}
+
+.day-info {
+  grid-column: var(--Thu);
+}
+.day-info.top {
+  grid-row: 1 / 2;
+}
+.day-info.bottom {
+  grid-row: 15 / 16;
+}
+
+.period-info {
+  grid-row: calc(var(--Tiet) + 1) / span 1;
+}
+.period-info.left {
+  grid-column: 1 / 2;
+  grid-row: calc(var(--Tiet) + 1) / span 1;
+}
+.period-info.right {
+  grid-column: 8 / 9;
+  grid-row: calc(var(--Tiet) + 1) / span 1;
+}
+
+.day-info,
+.period-info {
+  color: white;
+  background-color: #0095c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.subject {
+  text-align: center;
+  border-left: 2.5px solid;
+}
+.subject--TenMH {
+  font-weight: 800;
+  font-size: 1.3em;
+}

@@ -1,37 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<link rel="stylesheet" href="/css/popup.css" />
-	</head>
-	<body>
-		<div class="list-setting">
-			<div class="container">
-				<h1 class="title">Thời khóa biểu SGU</h1>
-				<div class="btn-list">
-					<a
-						class="btn"
-						id="show-tkb"
-						href="/pages/view.html"
-						target="_blank"
-						>Xem thời khóa biểu</a
-					>
-					<a
-						class="btn"
-						id="setting"
-						target="_blank"
-						href="/pages/view.html?tab=settings"
-						>Cài đặt</a
-					>
-				</div>
-			</div>
-		</div>
-		<div class="list-subject">
-			<div class="container">
-				<h4>To day dont have subject</h4>
-			</div>
-		</div>
-	</body>
-	<script src="/scripts/popup.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="/css/popup.css" />
+  <title>SGU Schedule</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">SGU Schedule</h1>
+    <div class="btn-list">
+      <a class="btn" id="show-schedule" href="view.html" target="_blank">View Schedule</a>
+      <a class="btn" id="settings" href="view.html?tab=settings" target="_blank">Settings</a>
+    </div>
+    <ul class="subject-list">
+      <li class="subject-item">
+        <div class="subject">
+          <div class="subject-name">Xây dựng phần mềm theo mô hình phân lớp (2020)</div>
+          <div class="subject-time">10h30 - 12h30</div>
+        </div>
+      </li>
+      <li class="subject-item">
+        <div class="subject">
+          <div class="subject-name">Phân tích thiết kế hệ thống thông tin</div>
+          <div class="subject-time">10h30 - 12h30</div>
+        </div>
+      </li>
+      <li class="subject-item">
+        <div class="subject">
+          <div class="subject-name">Phân tích thiết kế hệ thống </div>
+          <div class="subject-time">10h30 - 12h30</div>
+        </div>
+      </li>
+      <li class="subject-item">
+        <div class="subject">
+          <div class="subject-name">Phân tích thiết kế hệ thống thông tin</div>
+          <div class="subject-time">10h30 - 12h30</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
 </html>
