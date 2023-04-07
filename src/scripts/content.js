@@ -1,18 +1,14 @@
 const fillColor = (data) => {
-  let color = 0;
-  for (let element of data) {
-    if (element.color == undefined) {
-      element.color = ((dataColor) => {
-        if (dataColor != undefined) {
-          return dataColor;
-        }
-        return color++;
-      })(
-        data.find(
-          (subject) =>
-            subject.MaMH == element.MaMH && subject.color != undefined
-        )?.color
-      );
+  let colorIndex = 0;
+  const colorsMap = new Map(); // map to store color indexes by MaMH
+
+  for (const item of data) {
+    if (item.color === undefined) {
+      const key = item.MaMH;
+      const existingColor = colorsMap.get(key);
+      const color = existingColor !== undefined ? existingColor : colorIndex++;
+      item.color = color;
+      colorsMap.set(key, color);
     }
   }
 
@@ -64,6 +60,7 @@ const getData = () => {
   data = fillColor(data);
   return data;
 };
+
 console.log(getData());
 const renderButton = () => {
   const button = document.createElement("button");
