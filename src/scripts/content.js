@@ -30,9 +30,12 @@ const parseDayOfWeek = (day) => {
 };
 
 const parseWeeks = (weeksText) => {
+  // convert to time in number
   return weeksText
     .split("--")
-    .map((week) => new Date(week.replace(/(\d+[/])(\d+[/])/, "$2$1")));
+    .map((week) =>
+      new Date(week.replace(/(\d+[/])(\d+[/])/, "$2$1")).getTime()
+    );
 };
 
 const parseSubject = (tdElements) => {
