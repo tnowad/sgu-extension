@@ -1,4 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { SubjectList } from "../components";
+import { useEffect, useState } from "react";
+import { Subject } from "../types";
 function Popup() {
   const navigate = useNavigate();
   const handleOpenTab = () => {
@@ -9,13 +12,30 @@ function Popup() {
       }
     );
   };
+
+  const [subjects, setSubjects] = useState<Subject[]>([]);
+
+  useEffect(() => {
+    function getSubjects() {
+      chrome.storage.local.get("schedule", (result) => {
+        const subjects = result.schedule;
+        const subjectParsed: Subject[] = JSON.parse(subjects);
+        setSubjects(subjectParsed);
+      });
+    }
+
+    getSubjects();
+  }, []);
+
+  const [currentDate, setCurrentDate] = useState(new Date());
+
   return (
-    <div className="font-sans text-base bg-gray-200 w-96">
+    <div className="font-sans text-base bg-slate-50 w-[450px] max-w-[600px]">
       <div className="container max-w-screen-md px-4 py-8 mx-auto">
         <h1 className="mb-8 text-3xl font-bold text-center">SGU Schedule</h1>
         <div className="flex justify-center mb-8">
           <button
-            className="px-4 py-2 mr-4 text-white bg-blue-500 rounded hover:bg-blue-600"
+            className="px-4 py-2 mr-4 text-white duration-300 bg-blue-500 rounded hover:bg-blue-600 hover:transition-colors"
             onClick={handleOpenTab}
           >
             View Schedule
@@ -30,18 +50,29 @@ function Popup() {
             Update Schedule
           </a>
         </div>
-        <ul className="space-y-4">
-          <li>
-            <div className="px-4 py-3 transition-shadow duration-500 bg-white rounded-lg shadow-md hover:shadow-lg">
-              <div className="flex items-center justify-between">
-                <div className="font-bold">
-                  You don't have subject today!!! 😍
-                </div>
-                <div className="italic">-</div>
-              </div>
-            </div>
-          </li>
-        </ul>
+        <div className="flex justify-center mb-8">
+          <button
+            className="px-4 py-2 mr-4 text-white duration-300 bg-blue-500 rounded hover:bg-blue-600 hover:transition-colors"
+            onClick={() => {
+              const date = new Date(currentDate);
+              date.setDate(date.getDate() - 1);
+              setCurrentDate(date);
+            }}
+          >
+            Previous Day
+          </button>
+          <button
+            className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            onClick={() => {
+              const date = new Date(currentDate);
+              date.setDate(date.getDate() + 1);
+              setCurrentDate(date);
+            }}
+          >
+            Next Day
+          </button>
+        </div>
+        <SubjectList subjects={subjects} currentDate={currentDate} />
       </div>
     </div>
   );

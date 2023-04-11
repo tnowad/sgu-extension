@@ -10,6 +10,7 @@ export function useStorage(key: string, initialValue: any) {
       }
     });
   }, [key]);
+  console.log(value);
 
   useEffect(() => {
     chrome.storage.local.set({ [key]: value });

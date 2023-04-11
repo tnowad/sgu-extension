@@ -4,7 +4,7 @@ function Schedule() {
   // load schedule data from chrome.storage.local.get("tkb")
   // then render the schedule
 
-  const [schedule] = useStorage("tkb", []);
+  const [schedule] = useStorage("schedule", []);
 
   return (
     <div>
