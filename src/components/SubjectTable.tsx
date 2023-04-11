@@ -91,6 +91,9 @@ export function SubjectTable({
               <div className="flex flex-col items-center justify-center">
                 <div className="text-center">{subject.subjectName}</div>
                 <div className="text-center">{subject.room}</div>
+                {subject.practiceSession && (
+                  <div>Thực hành {subject.practiceSession}</div>
+                )}
               </div>
             </div>
           );
