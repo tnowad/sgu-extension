@@ -1,4 +1,4 @@
-export default interface Subject {
+export interface Subject {
   subjectCode: string;
   subjectName: string;
   subjectGroup: string;
@@ -12,9 +12,6 @@ export default interface Subject {
   numberOfPeriods: number;
   room: string;
   lecturer: string;
-  weeks: {
-    start: number;
-    end: number;
-  };
+  weeks: number[];
   color?: number;
 }
