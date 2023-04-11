@@ -35,13 +35,13 @@ function Popup() {
         <h1 className="mb-8 text-3xl font-bold text-center">SGU Schedule</h1>
         <div className="flex justify-center mb-3">
           <button
-            className="px-4 py-2 mr-4 text-white duration-300 bg-[#5cbfdd] rounded hover:shadow-lg hover:scale-105"
+            className="px-4 py-2 mr-4 text-white duration-300 bg-[#5cbfdd] rounded hover:shadow-lg"
             onClick={handleOpenTab}
           >
             View Schedule
           </button>
           <a
-            className="px-4 py-2 mr-4 text-white duration-300 bg-[#5cbfdd] rounded hover:shadow-lg hover:scale-105"
+            className="px-4 py-2 mr-4 text-white duration-300 bg-[#5cbfdd] rounded hover:shadow-lg"
             id="update-schedule"
             href="http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1"
             target="_blank"
@@ -50,7 +50,7 @@ function Popup() {
             Update Schedule
           </a>
         </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center mb-3">
           {/* create 2 button with svg previous day and next day */}
           <button
             className="flex items-center justify-center w-8 h-8 mr-4 text-white bg-[#5cbfdd] rounded-full duration-300 hover:shadow-lg hover:scale-105"

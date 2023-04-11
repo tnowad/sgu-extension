@@ -20,7 +20,7 @@ function Schedule() {
   const [currentDate, setCurrentDate] = useState(new Date());
   return (
     <div className="flex items-center justify-center w-full h-[100vh] flex-col bg-slate-50">
-      <div className="flex items-center justify-center mb-5">
+      <div className="flex items-center justify-center mb-8">
         {/* create 2 button with svg previous day and next day */}
         <button
           className="flex items-center justify-center w-8 h-8 mr-4 text-white bg-[#5cbfdd] rounded-full duration-300 hover:shadow-lg hover:scale-105"
