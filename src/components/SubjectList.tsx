@@ -21,7 +21,7 @@ export function SubjectList({
       {subjects.length > 0 ? (
         subjects.map((subject, index) => (
           <li key={index}>
-            <div className="px-4 py-3 transition-shadow duration-500 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105">
+            <div className="px-4 py-3 transition-shadow duration-500 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02]">
               <div className="flex items-center justify-between">
                 <div className="font-bold w-[200px]">{subject.subjectName}</div>
                 <div className="min-w-[50px]">{subject.room}</div>
@@ -39,7 +39,7 @@ export function SubjectList({
         ))
       ) : (
         <li>
-          <div className="px-4 py-3 transition-shadow duration-500 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-105">
+          <div className="px-4 py-3 transition-shadow duration-500 bg-white rounded-lg shadow-md hover:shadow-lg hover:scale-[1.02]">
             <div className="flex items-center justify-between">
               <div className="font-bold">
                 {currentDate.toLocaleDateString() ===
