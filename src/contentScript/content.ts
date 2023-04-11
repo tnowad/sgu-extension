@@ -1,5 +1,5 @@
 import { Subject } from "../types";
-import { fillColor, parseSubject } from "./utils";
+import { fillColor, parseSubject } from "../utils";
 const getData = (): Subject[] => {
   const trElements = Array.from(document.querySelectorAll(".body-table tr"));
   const data = trElements.map((trElement) =>
@@ -11,7 +11,7 @@ const getData = (): Subject[] => {
 
 const updateSchedule = (): void => {
   const data = getData();
-  chrome.storage.local.set({ tkb: JSON.stringify(data) }).then(() => {
+  chrome.storage.local.set({ schedule: JSON.stringify(data) }).then(() => {
     alert("Schedule updated!");
   });
 };

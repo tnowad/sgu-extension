@@ -1,4 +1,4 @@
-import { Subject } from "../../types";
+import { Subject } from "../types";
 export const parseDayOfWeek = (day: string): number => {
   const daysOfWeek: Record<string, number> = {
     Hai: 2,

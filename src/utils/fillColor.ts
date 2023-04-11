@@ -1,4 +1,4 @@
-import { Subject } from "../../types";
+import { Subject } from "../types";
 export const fillColor = (data: Subject[]): Subject[] => {
   let colorIndex = 0;
   const colorsMap = new Map<string, number>();
