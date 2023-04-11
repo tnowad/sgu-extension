@@ -15,6 +15,7 @@ const todaySubjects = subjects.filter((subject) => {
     subject.Tuan[1] >= current.date
   );
 });
+
 const Lesson = {
   1: { start: "07:00", end: "07:50" },
   2: { start: "07:50", end: "08:40" },
