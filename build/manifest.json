@@ -1,0 +1,26 @@
+{
+  "name": "SGU Schedule Extension",
+  "description": "This extension will help you to get your schedule from SGU website",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "SGU Schedule Extension"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1",
+        "http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1&lang=x"
+      ],
+      "js": ["./static/js/content.js"]
+    }
+  ],
+  "permissions": ["storage"],
+  "icons": {
+    "16": "images/16x16.png",
+    "32": "images/32x32.png",
+    "48": "images/48x48.png",
+    "64": "images/64x64.png"
+  }
+}

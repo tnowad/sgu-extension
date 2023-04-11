@@ -13,10 +13,13 @@ export function SubjectTable({
     );
   });
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen">
+    <div className="flex flex-col items-center justify-center w-11/12 min-w-[1200px] max-w-[1400px] h-[80vh] box-border p-2 rounded-xl shadow-md">
       <div
-        className="h-[80vh] grid grid-cols-7 overflow-hidden h-80vh grid-rows-15 gap-x-[1px] gap-y-[1px]"
-        style={{ gridTemplateColumns: "5% repeat(6, 1fr) 5%" }}
+        className="h-[80vh] grid overflow-hidden h-80vh gap-x-[1px] gap-y-[1px] w-full"
+        style={{
+          gridTemplateColumns: "5% repeat(6, 1fr) 5%",
+          gridTemplateRows: "repeat(15, 1fr)",
+        }}
       >
         {
           // loop 6 times to create 6 rows
@@ -24,7 +27,7 @@ export function SubjectTable({
             return (
               <>
                 <div
-                  className="bg-[#5cbfdd] text-white flex items-center justify-center"
+                  className="bg-[#5cbfdd] text-white flex items-center justify-center duration-500 hover:shadow-lg hover:scale-[1.02]"
                   key={"day top" + index}
                   style={{
                     gridColumn: index + 2,
@@ -34,7 +37,7 @@ export function SubjectTable({
                   <div className="text-center">Thứ {index + 2}</div>
                 </div>
                 <div
-                  className="bg-[#5cbfdd]  text-white flex items-center justify-center"
+                  className="bg-[#5cbfdd]  text-white flex items-center justify-center duration-500 hover:shadow-lg hover:scale-[1.02]"
                   key={"day bottom" + index}
                   style={{
                     gridColumn: index + 2,
@@ -53,7 +56,7 @@ export function SubjectTable({
             return (
               <>
                 <div
-                  className="bg-[#5cbfdd] text-white flex items-center justify-center"
+                  className="bg-[#5cbfdd] text-white flex items-center justify-center duration-500 hover:shadow-lg hover:scale-[1.02]"
                   key={"period left" + index}
                   style={{
                     gridColumn: 1,
@@ -63,7 +66,7 @@ export function SubjectTable({
                   <div className="text-center">Tiết {index + 1}</div>
                 </div>
                 <div
-                  className="bg-[#5cbfdd]  text-white flex items-center justify-center"
+                  className="bg-[#5cbfdd]  text-white flex items-center justify-center duration-500 hover:shadow-lg hover:scale-[1.02]"
                   key={"period right" + index}
                   style={{
                     gridColumn: "8 / 9",
@@ -79,17 +82,22 @@ export function SubjectTable({
         {subjects.map((subject, index) => {
           return (
             <div
-              className=""
+              className={`shadow-sm bg-white flex items-center justify-center border-l duration-500 hover:shadow-lg hover:scale-[1.02]`}
               key={"subject" + index}
               style={{
                 gridColumn: subject.dayOfWeek,
                 gridRow: `${subject.startingPeriod + 1} / span ${
                   subject.numberOfPeriods
                 }`,
+                color: `var(--primary-color--${subject.color})`,
+                borderColor: `var(--secondary-color--${subject.color})`,
+                backgroundColor: `var(--tertiary-color--${subject.color})`,
               }}
             >
               <div className="flex flex-col items-center justify-center">
-                <div className="text-center">{subject.subjectName}</div>
+                <div className="text-base font-bold text-center">
+                  {subject.subjectName}
+                </div>
                 <div className="text-center">{subject.room}</div>
                 {subject.practiceSession && (
                   <div>Thực hành {subject.practiceSession}</div>
