@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-function Home() {
+function Popup() {
   const navigate = useNavigate();
   const handleOpenTab = () => {
     chrome.tabs.create(
@@ -47,4 +47,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Popup;
