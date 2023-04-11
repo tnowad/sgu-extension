@@ -10,7 +10,9 @@
   "permissions": ["activeTab"],
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
+      "matches": [
+        "http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1"
+      ],
       "js": ["./static/js/content.js"]
     }
   ],
