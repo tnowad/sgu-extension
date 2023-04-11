@@ -10,7 +10,8 @@
   "content_scripts": [
     {
       "matches": [
-        "http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1"
+        "http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1",
+        "http://thongtindaotao.sgu.edu.vn/default.aspx?page=thoikhoabieu&sta=1&lang=x"
       ],
       "js": ["./static/js/content.js"]
     }
