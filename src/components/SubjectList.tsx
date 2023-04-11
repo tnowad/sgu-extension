@@ -12,8 +12,8 @@ export function SubjectList({
     const currentDayOfWeek = currentDate.getDay();
     return (
       subject.dayOfWeek - 1 === currentDayOfWeek &&
-      currentDate >= subject.weeks[0] &&
-      currentDate <= subject.weeks[1]
+      currentDate >= new Date(subject.weeks[0]) &&
+      currentDate <= new Date(subject.weeks[1])
     );
   });
   return (

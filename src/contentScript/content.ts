@@ -35,5 +35,4 @@ const tryAutoStart = () => {
     createUpdateButton();
   }
 };
-console.log(getData());
 tryAutoStart();

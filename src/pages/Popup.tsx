@@ -28,7 +28,7 @@ function Popup() {
   }, []);
 
   const [currentDate, setCurrentDate] = useState(new Date());
-
+  console.log(subjects);
   return (
     <div className="font-sans text-base bg-slate-50 w-[450px] max-w-[600px]">
       <div className="container max-w-screen-md px-4 py-8 mx-auto">
