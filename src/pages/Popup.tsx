@@ -20,7 +20,11 @@ function Popup() {
       chrome.storage.local.get("schedule", (result) => {
         const subjects = result.schedule;
         const subjectParsed: Subject[] = JSON.parse(subjects);
-        setSubjects(subjectParsed);
+        setSubjects(
+          [...subjectParsed].sort((a, b) => {
+            return a.startingPeriod - b.startingPeriod;
+          })
+        );
       });
     }
 
